@@ -1,0 +1,10 @@
+com\example\commandes\controller\MonitoringController.class
+com\example\commandes\CommandesApplication.class
+com\example\commandes\controller\ConfigController.class
+com\example\commandes\controller\CommandeController.class
+com\example\commandes\model\Commande.class
+com\example\commandes\config\CommandesConfig.class
+com\example\commandes\repository\CommandeRepository.class
+com\example\commandes\config\WebConfig.class
+com\example\commandes\service\MonitoringService.class
+com\example\commandes\health\CommandesHealthIndicator.class

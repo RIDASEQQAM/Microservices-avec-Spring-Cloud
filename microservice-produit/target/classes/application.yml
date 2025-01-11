@@ -9,9 +9,25 @@ spring:
       fail-fast: true
       username: config-server
       password: config-server-password
+  datasource:
+    url: jdbc:h2:file:./data/productdb
+    username: sa
+    password: password
+    driverClassName: org.h2.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
 
 server:
-  port: 8082
+  port: 8081
+  servlet:
+    context-path: /api
 
 eureka:
   client:
@@ -19,3 +35,10 @@ eureka:
       defaultZone: http://localhost:8761/eureka/
   instance:
     preferIpAddress: true
+    hostname: localhost
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

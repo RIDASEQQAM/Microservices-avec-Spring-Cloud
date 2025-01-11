@@ -2,35 +2,67 @@ spring:
   application:
     name: microservice-commandes
   config:
-    import: optional:configserver:http://config-server:config-server-password@localhost:8888
+    import: optional:configserver:http://localhost:8888
   cloud:
     config:
+      uri: http://localhost:8888
       fail-fast: true
+      username: config-server
+      password: config-server-password
   datasource:
-    url: jdbc:h2:mem:commandesdb
-    driver-class-name: org.h2.Driver
+    url: jdbc:h2:file:./data/commandsdb
     username: sa
-    password: 
+    password: password
+    driverClassName: org.h2.Driver
   jpa:
     database-platform: org.hibernate.dialect.H2Dialect
     hibernate:
       ddl-auto: update
+    show-sql: true
   h2:
     console:
       enabled: true
       path: /h2-console
 
 server:
-  port: 8081
+  port: 8085
+  servlet:
+    context-path: /api
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    preferIpAddress: true
+    hostname: localhost
 
 management:
   endpoints:
     web:
       exposure:
         include: "*"
+      base-path: /actuator
+      cors:
+        allowed-origins: "*"
+        allowed-methods: "*"
   endpoint:
     health:
       show-details: always
+    metrics:
+      enabled: true
+    prometheus:
+      enabled: true
 
 mes-config-ms:
   commandes-last: 10
+  enable-timeout: false
+  timeout-duration: 5000
+  service-version: "1.0"
+  enable-metrics: true
+
+logging:
+  level:
+    com.example.commandes: INFO
+    org.springframework.web: INFO
+    org.springframework.cloud: INFO

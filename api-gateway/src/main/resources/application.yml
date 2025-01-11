@@ -1,25 +1,54 @@
 server:
-  port: 8080
+  port: 9999
 
 spring:
   application:
     name: api-gateway
   cloud:
     gateway:
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins: "http://localhost:4200"
+            allowedMethods:
+              - GET
+              - POST
+              - PUT
+              - DELETE
+            allowedHeaders: "*"
+            allowCredentials: true
       discovery:
         locator:
           enabled: true
+          lowerCaseServiceId: true
       routes:
-        - id: microservice-commandes
-          uri: lb://microservice-commandes
+        - id: products-service
+          uri: lb://MICROSERVICE-PRODUIT
+          predicates:
+            - Path=/api/products/**
+          filters:
+            - RewritePath=/api/(?<segment>.*), /api/${segment}
+        - id: commands-service
+          uri: lb://MICROSERVICE-COMMANDES
           predicates:
             - Path=/api/commandes/**
-        - id: microservice-produit
-          uri: lb://microservice-produit
-          predicates:
-            - Path=/api/produits/**
+          filters:
+            - RewritePath=/api/(?<segment>.*), /api/${segment}
+    config:
+      uri: http://localhost:8888
+      fail-fast: true
+      username: config-server
+      password: config-server-password
 
 eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/
+  instance:
+    preferIpAddress: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

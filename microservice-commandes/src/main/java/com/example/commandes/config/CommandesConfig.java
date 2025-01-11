@@ -11,4 +11,8 @@ import org.springframework.context.annotation.Configuration;
 @Data
 public class CommandesConfig {
     private Integer commandesLast = 10;
+    private Boolean enableTimeout = false;
+    private Integer timeoutDuration = 5000;
+    private String serviceVersion = "1.0";
+    private Boolean enableMetrics = true;
 }

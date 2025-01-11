@@ -1,5 +1,8 @@
-c:\Users\redas\Downloads\spring-microservices-demo\microservice-produit\src\main\java\com\example\produit\model\Produit.java
-c:\Users\redas\Downloads\spring-microservices-demo\microservice-produit\src\main\java\com\example\produit\service\ProduitService.java
-c:\Users\redas\Downloads\spring-microservices-demo\microservice-produit\src\main\java\com\example\produit\ProduitApplication.java
-c:\Users\redas\Downloads\spring-microservices-demo\microservice-produit\src\main\java\com\example\produit\repository\ProduitRepository.java
-c:\Users\redas\Downloads\spring-microservices-demo\microservice-produit\src\main\java\com\example\produit\controller\ProduitController.java
+c:\Users\redas\CascadeProjects\Microservices-avec-Spring-Cloud\microservice-produit\src\main\java\com\example\produit\controller\ProductController.java
+c:\Users\redas\CascadeProjects\Microservices-avec-Spring-Cloud\microservice-produit\src\main\java\com\example\produit\controller\ProduitController.java
+c:\Users\redas\CascadeProjects\Microservices-avec-Spring-Cloud\microservice-produit\src\main\java\com\example\produit\repository\ProductRepository.java
+c:\Users\redas\CascadeProjects\Microservices-avec-Spring-Cloud\microservice-produit\src\main\java\com\example\produit\ProduitApplication.java
+c:\Users\redas\CascadeProjects\Microservices-avec-Spring-Cloud\microservice-produit\src\main\java\com\example\produit\repository\ProduitRepository.java
+c:\Users\redas\CascadeProjects\Microservices-avec-Spring-Cloud\microservice-produit\src\main\java\com\example\produit\model\Produit.java
+c:\Users\redas\CascadeProjects\Microservices-avec-Spring-Cloud\microservice-produit\src\main\java\com\example\produit\model\Product.java
+c:\Users\redas\CascadeProjects\Microservices-avec-Spring-Cloud\microservice-produit\src\main\java\com\example\produit\service\ProduitService.java
