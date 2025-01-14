@@ -9,7 +9,7 @@ spring:
       globalcors:
         corsConfigurations:
           '[/**]':
-            allowedOrigins: "http://localhost:4200"
+            allowedOrigins: "http://localhost:4201"
             allowedMethods:
               - GET
               - POST
@@ -25,15 +25,15 @@ spring:
         - id: products-service
           uri: lb://MICROSERVICE-PRODUIT
           predicates:
-            - Path=/api/products/**
+            - Path=/microservice-produit/**
           filters:
-            - RewritePath=/api/(?<segment>.*), /api/${segment}
+            - StripPrefix=1
         - id: commands-service
           uri: lb://MICROSERVICE-COMMANDES
           predicates:
-            - Path=/api/commandes/**
+            - Path=/microservice-commandes/**
           filters:
-            - RewritePath=/api/(?<segment>.*), /api/${segment}
+            - StripPrefix=1
     config:
       uri: http://localhost:8888
       fail-fast: true
